@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>タイトル</title>
+		<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+<style>
+body {
+font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+}
+.userPhoto_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 300px;
+  background: url(Kappa_sub8-13.jpeg) no-repeat center center;
+  background-size: cover;
+}
+
+.Likes{
+  position: relative;
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 100%;
+}
+.Likes span.cheer {
+  position: absolute;
+  top: 13px;
+  left: 29px;
+  font-size: 10px;
+}
+.Likes span.cheerCount {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  right: 0;
+  letter-spacing: .15em;
+  text-align: center;
+  font-size: 10px; 
+}
+.LikesIcon {
+  position: absolute;
+  top: -5px;
+  left: -7px;
+  background: url("web_heart_animation3.png");
+  background-position: left;
+  background-size: 2900%;
+  background-repeat: no-repeat;
+  width: 105px;
+  height: 105px;
+}
+ @keyframes heartBlast {
+   0% {
+     background-position: left;
+   }
+   100% {
+     background-position: right;
+   }
+ }
+ 
+ .HeartAnimation {
+   display: inline-block;
+   background-position: right;
+   -webkit-animation-name: heartBlast;
+   animation-name: heartBlast;
+   -webkit-animation-duration: .8s;
+   animation-duration: .8s;
+   -webkit-animation-iteration-count: 1;
+   animation-iteration-count: 1;
+   -webkit-animation-timing-function: steps(28);
+   animation-timing-function: steps(28);
+   animation-fill-mode: forwards;
+ }
+</style>
+</head>
+<body>
+  <div class="userPhoto_block">
+    <div class="Likes">
+      <span class="cheer">ステキ！</span>
+      <div class="LikesIcon"></div>
+      <span class="cheerCount">341</span>
+    </div>
+  </div>
+
+<script type="text/javascript">
+$('.LikesIcon').on('click', function() {
+    let $btn = $(this);
+    // Likeアイコンがonクラス持っていたら
+    if ($btn.hasClass('on')) {
+      
+      $btn.removeClass('on');
+      $btn.removeClass("HeartAnimation");
+      $btn.css("background-position","left");
+
+    } else {
+      $btn.addClass('on');
+      $btn.addClass("HeartAnimation");
+
+    }
+});
+
+</script>
+</body>
+</html>
